@@ -1,0 +1,67 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "eScript",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#functions"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"captures": {
+					"1": { "name": "storage.type.escript" },
+					"2": { "name": "variable.parameter.escript" }
+				},
+				"match": "\\b(var|const)\\b\\s*\\b(\\w*)\\b",
+				"name": "meta.class.escript"
+			  },
+			  {
+				"match": "\\b(array|dictionary|struct|error)\\b",
+				"name": "storage.type.escript"
+			  },
+			  {
+				"match": "\\b(array|dictionary|struct|error)\\b",
+				"name": "storage.type.escript"
+			  },
+			  {
+				"match": "\\b(return|exit|in)\\b",
+				"name": "keyword.control.conditional.escript"
+			  }]
+		},
+		"strings": {
+			"name": "string.quoted.double.test",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.test",
+					"match": "\\\\."
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"match": "(?i)\\b(exported\\s*)?(function)\\s*(\\w*)\\b",
+					"captures": {
+					  "1": {"name":"entity.other.inherited-class.escript"},
+					  "2": {"name":"keyword.control.conditional.escript"},
+					  "3": {"name":"entity.name.function.escript"}
+					}
+				},
+				{
+					"match": "(?i)\\bendfunction\\b",
+					"scope": "invalid.illegal.escript"
+				}
+			]
+		}
+	},
+	"scopeName": "source.escript"
+}

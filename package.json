@@ -1,0 +1,25 @@
+{
+    "name": "pol-escript-language",
+    "displayName": "POL eScript Language",
+    "description": "Syntax highlighting and autocomplete for use with POLServers eScript langauage",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.37.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "escript",
+            "aliases": ["eScript", "escript"],
+            "extensions": [".src",".inc",".em"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "escript",
+            "scopeName": "source.escript",
+            "path": "./syntaxes/escript.tmLanguage.json"
+        }]
+    }
+}
